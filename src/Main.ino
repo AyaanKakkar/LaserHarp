@@ -1,7 +1,4 @@
 const int velocity=100;
-//const int trigPin = 2;
-//const int echoPin = 3; 
-
 
 // Chord mapping
 int C_maj[]={36,40,43};
@@ -73,8 +70,6 @@ int laser=1;
 void setup() {
   // Set baud rate
   Serial.begin(9600);
-//  pinMode(trigPin, OUTPUT);
-//  pinMode(echoPin, INPUT);
 }
 
 void loop() {
@@ -87,22 +82,6 @@ void loop() {
     {
       if(status_pi[laser]==0)
       {
-//        int cm_min=10000;
-//        int cm;
-//        double duration;
-//         for(int j=0;j<10;j++)
-//        {
-//          digitalWrite(trigPin, LOW);
-//          delayMicroseconds(2);
-//          digitalWrite(trigPin, HIGH);
-//          delayMicroseconds(10);
-//          digitalWrite(trigPin, LOW);
-//          duration = pulseIn(echoPin, HIGH);
-//          cm = microsecondsToCentimeters(duration);
-//          if(cm<cm_min) cm_min=cm;
-//        }
-//        int velocity1=30+cm_min;
-//        if(velocity1>127) velocity1=127;
         status_pi[laser]=1;
         start_chord(chord_map_pi[chord_map_index][laser],noteon_pi,velocity);      
       }
@@ -176,15 +155,7 @@ void loop() {
     }
   }
   laser=(laser+1)%9;
-  if(laser==0) laser++;
-  if(laser==4) laser++;
-//  if(laser==0) laser=1;
-//  else if(laser==1) laser=6;
-//  else laser=0;  
-//if(laser==8) laser=1;
-//else laser=8;
-delay(20);
-  
+  delay(20);  
 }
  // Get the status of the ldr 0 if beam intact else 1
 int ldr_stat(int ldr)
@@ -225,10 +196,3 @@ void stop_chord(int chord[],int noteOFF,int velocity)
   }
   delay(20);
 }
-//long microsecondsToCentimeters(long microseconds)
-//{
-//  // The speed of sound is 340 m/s or 29 microseconds per centimeter.
-//  // The ping travels out and back, so to find the distance of the
-//  // object we take half of the distance travelled.
-//  return microseconds / 29 / 2;
-//}
