@@ -21,3 +21,6 @@ The source code provided is for the configuration of 8 lasers and 8 LDRs attache
 2. Shashwat Aggarwal
 3. Samik Prakash
 4. Daksh Thapar
+
+## Website
+https://samikprakash.wixsite.com/noisyboiz/
